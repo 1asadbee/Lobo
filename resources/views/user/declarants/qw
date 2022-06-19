@@ -1,0 +1,274 @@
+
+        <div class="mt-10 md:mt-2">
+            <!-- Computer Post Screen Begin -->
+            <div
+                class="hidden md:grid grid-cols-10 text-center text-sm md:pr-3 lg:px-0 py-5 xl:py-3 shadow-md font-medium bg-white rounded-lg">
+                <div onclick="openCaption(1)" id="1" class="col-span-9 grid grid-cols-9">
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-1 text-white bg-theme-9 rounded">Svobodna</div>
+                    <div class="col-span-1">5000$</div>
+                </div>
+                <div class="col-span-1">
+                    <a href="#" class="button text-white px-0 md:px-1 lg:px-2 xl:px-6 bg-theme-9 w-full">связьция</a>
+                </div>
+                <div id="caption-1" class="col-span-8 px-5 text-left caption-hidden">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+            <!-- Computer Post Screen End -->
+            <!-- Mobile Post Screen Begin -->
+            <span
+                class="absolute md:hidden right-50 top-10 -mt-4 -mr-4 ml-4 px-5 py-1 bg-theme-6 text-white rounded-full">ЗАЙНЕТ</span>
+
+            <div class="grid grid-cols-12 md:hidden shadow-md bg-white rounded-lg p-5 mt-4 font-medium">
+                <div class="col-span-12 sm:col-span-6 grid grid-cols-12">
+                    <div class="col-span-9 mb-1 mt-4">
+                        ДЕКЛАРАЦИИ
+                    </div>
+                    <div class="col-span-3 mb-1 mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        РАСЧЕТ СБОРА
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        СЕРТИФИКАТ
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 mt-1 mb-1 sm:mb-0">
+                        ЛИЦЕНЗИИ
+                    </div>
+                    <div class="col-span-3 mt-1 mb-1 sm:mb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="col-span-12 sm:col-span-6 grid grid-cols-12">
+                    <div class="col-span-9 mb-1 mt-1 sm:mt-4">
+                        РАЗРЕШИТ. ДОК.
+                    </div>
+                    <div class="col-span-3 mb-1 mt-1 sm:mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        НЕОБЫЧНЫХ ГРУЗОВ
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        СТРАХОВАНИЯ
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-8 mt-4 sm:mt-1 font-bold">
+                        ЦЕНА:
+                    </div>
+                    <div class="col-span-4 mt-4 sm:mt-1 font-bold text-lg text-theme-1 text-center">
+                        5000 USD
+                    </div>
+                </div>
+                <!-- <div class="col-span-12"> -->
+                <div class="col-span-12 sm:col-span-8 mt-4"><h1 style="padding-top: 6px;" class="text-lg">Abdurakhmon
+                        GAYBULLAEV</h1></div>
+                <a href="#" class="button text-white px-0 mt-4 bg-theme-9 col-span-12 sm:col-span-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block -ml-2" viewBox="0 0 20 20"
+                         fill="currentColor">
+                        <path
+                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                    &nbsp СВЯЗАЦИЯ
+                </a>
+                <!-- </div> -->
+            </div>
+            <!-- Mobile Post Screen End -->
+        </div>
+        <div class="mt-10">
+            <!-- Mobile Post Screen Begin -->
+            <span
+                class="absolute md:hidden right-50 top-10 -mt-4 -mr-4 ml-4 px-5 py-1 bg-theme-9 text-white rounded-full">СВОБОДЕН</span>
+
+            <div class="grid grid-cols-12 md:hidden shadow-md bg-white rounded-lg p-5 mt-4 font-medium">
+                <div class="col-span-12 sm:col-span-6 grid grid-cols-12">
+                    <div class="col-span-9 mb-1 mt-4">
+                        ДЕКЛАРАЦИИ
+                    </div>
+                    <div class="col-span-3 mb-1 mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        РАСЧЕТ СБОРА
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        СЕРТИФИКАТ
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 mt-1 mb-1 sm:mb-0">
+                        ЛИЦЕНЗИИ
+                    </div>
+                    <div class="col-span-3 mt-1 mb-1 sm:mb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="col-span-12 sm:col-span-6 grid grid-cols-12">
+                    <div class="col-span-9 mb-1 mt-1 sm:mt-4">
+                        РАЗРЕШИТ. ДОК.
+                    </div>
+                    <div class="col-span-3 mb-1 mt-1 sm:mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-9 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        НЕОБЫЧНЫХ ГРУЗОВ
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-9 my-1">
+                        СТРАХОВАНИЯ
+                    </div>
+                    <div class="col-span-3 my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6 mx-auto" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="col-span-8 mt-4 sm:mt-1 font-bold">
+                        ЦЕНА:
+                    </div>
+                    <div class="col-span-4 mt-4 sm:mt-1 font-bold text-lg text-theme-1 text-center">
+                        5000 USD
+                    </div>
+                </div>
+                <!-- <div class="col-span-12"> -->
+                <div class="col-span-12 sm:col-span-8 mt-4"><h1 style="padding-top: 6px;" class="text-lg">Abdurakhmon
+                        GAYBULLAEV</h1></div>
+                <a href="#" class="button text-white px-0 mt-4 bg-theme-9 col-span-12 sm:col-span-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block -ml-2" viewBox="0 0 20 20"
+                         fill="currentColor">
+                        <path
+                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                    &nbsp СВЯЗАЦИЯ
+                </a>
+                <!-- </div> -->
+            </div>
+            <!-- Mobile Post Screen End -->
+        </div>

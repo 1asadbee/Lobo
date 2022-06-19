@@ -1,0 +1,115 @@
+.caption-hidden {
+    padding-top: 0px;
+    font-size: 0px;
+    opacity: 0;
+    visibility: collapse;
+    transition: padding-top 0.3s, visibility 0.3s, font-size 0.5s, opacity 0.5s ease-out;
+}
+
+.caption-open {
+    padding-top: 20px;
+    visibility: visible;
+    font-size: inherit;
+    opacity: 1;
+    transition: padding-top 0.3s, font-size 0.5s, opacity 0.5s ease-out;
+}
+
+.text-tiny {
+    font-size: 0.65rem;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.subtract-text {
+    display: none;
+}
+
+.mobile-profile-button:hover ~ .mobile-profile-dropdown {
+    display: block;
+}
+
+@media (max-width: 406px) {
+    .call-mobile-button a {
+        padding-left: 15px;
+        padding-right: 9px;
+    }
+
+    .action-button {
+        padding-left: 1px!important;
+        padding-right: 1px!important;
+    }
+}
+
+/*@media (max-width: 450px){
+	.declarants-name{
+		font-size: 0.9rem!important;
+		padding-top: 10px!important;
+	}
+	.declarants-call-button{
+		font-size: 10px;
+	}
+}*/
+
+@media (max-width: 466px) {
+    .whole-text {
+        display: none;
+    }
+
+    .subtract-text {
+        display: block;
+    }
+}
+
+@media (max-width: 562px) {
+    .truck-image {
+        display: none;
+    }
+
+    .call-mobile-button {
+        margin-left: -50%;
+    }
+}
+
+@media (min-width: 640px) {
+    .w-modal-24 {
+        width: 31rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .text-very-tiny {
+        font-size: 0.4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    #header-footer-modal-preview-2 .modal__content {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 875px) {
+    .text-very-tiny {
+        font-size: 0.5rem;
+    }
+}
+
+
+@media (min-width: 950px) {
+    .text-very-tiny {
+        font-size: 0.55rem
+    }
+}
+
+@media (min-width: 1024px) {
+    .text-very-tiny {
+        font-size: 0.6rem
+    }
+}
+
+
+
+
+
