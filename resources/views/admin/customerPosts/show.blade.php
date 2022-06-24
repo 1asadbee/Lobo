@@ -113,10 +113,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.customerPost.fields.date') }}
+                            {{ trans('cruds.customerPost.fields.daten') }}
                         </th>
                         <td>
-                            {{ $customerPost->date }}
+                            {{ $customerPost->daten }}
                         </td>
                     </tr>
                     <tr>

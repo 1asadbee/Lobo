@@ -116,7 +116,7 @@
 
 @section('data-list')
     <!-- BEGIN: Data List -->
-    <div style="overflow-x: auto;" class="intro-y col-span-12 lg:overflow-visible">
+    <div  class="intro-y col-span-12 lg:overflow-visible">
         <div style="font-size:1vw" class="hidden md:grid grid-cols-10 text-center py-5 font-medium">
             <div class="col-span-1">ДЕКЛАРАЦИИ</div>
             <div class="col-span-1">РАСЧЕТ СБОРА</div>
@@ -247,7 +247,7 @@
                 </div>
 
                 <div class="col-span-1">
-                    <div class="dropdown relative"> <button class="dropdown-toggle button inline-block bg-theme-9 py-0 px-8 text-white">связьция</button>
+                    <div class="dropdown relative"><a href="#" class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
                         <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                             <div class="dropdown-box__content box p-2">
 
@@ -256,7 +256,7 @@
                                         <a href="tel:{{$phone_number->phone_number}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
                                     @endforeach
                                 @else
-                                    <a href="{{route('home',$locale)}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
+                                    <a href="{{route('user-register',$locale)}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
 
                                 @endif
                             </div>

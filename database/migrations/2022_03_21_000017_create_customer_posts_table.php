@@ -15,7 +15,7 @@ class CreateCustomerPostsTable extends Migration
             $table->string('load');
             $table->integer('weight')->nullable();
             $table->string('area')->nullable();
-            $table->date('date')->nullable();
+            $table->date('daten')->nullable();
             $table->integer('price');
             $table->timestamps();
         });

@@ -1,8 +1,8 @@
 <form action="{{route('addCustomer',$locale)}}" method="post">
     @csrf
-    {{--                    @if($errors->any())--}}
-    {{--                        {{ implode('', $errors->all('<div>:message</div>')) }}--}}
-    {{--                    @endif--}}
+                        @if($errors->any())
+                            {{ implode('', $errors->all('<div>:message</div>')) }}
+                        @endif
     <div class="modal__content">
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200">
             <h2 class="font-medium text-base mt-16 mr-auto">Добавить объявление</h2>

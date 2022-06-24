@@ -80,7 +80,6 @@ class CustomerController extends Controller
             'currency_id' => 'required',
             'description' => '',
         ]);
-
         $customer_post = new CustomerPost();
 
         $customer_post->user_id = auth()->user()->id;
@@ -89,7 +88,7 @@ class CustomerController extends Controller
         $customer_post->load = $request->load;
         $customer_post->weight = $request->weight;
         $customer_post->area = $request->height . '-' . $request->width . '-' . $request->length;
-        $customer_post->date = $request->date;
+        $customer_post->daten =Carbon::createFromFormat('d/m/Y', $request->daten);
         $customer_post->price = $request->price;
         $customer_post->from_id = $request->from_id;
         $customer_post->to_id = $request->to_id;

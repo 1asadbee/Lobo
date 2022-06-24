@@ -59,7 +59,7 @@
                             {{ trans('cruds.customerPost.fields.area') }}
                         </th>
                         <th>
-                            {{ trans('cruds.customerPost.fields.date') }}
+                            {{ trans('cruds.customerPost.fields.daten') }}
                         </th>
                         <th>
                             {{ trans('cruds.customerPost.fields.price') }}
@@ -115,7 +115,7 @@
                                 {{ $customerPost->area ?? '' }}
                             </td>
                             <td>
-                                {{ $customerPost->date ?? '' }}
+                                {{ $customerPost->daten ?? '' }}
                             </td>
                             <td>
                                 {{ $customerPost->price ?? '' }}
@@ -202,7 +202,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

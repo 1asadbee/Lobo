@@ -199,7 +199,7 @@
 @endsection
 @section('data-list')
     <!-- BEGIN: Data List -->
-    <div style="overflow-x: auto;" class="intro-y col-span-12 lg:overflow-visible">
+    <div class="intro-y col-span-12 lg:overflow-visible">
         <div class="hidden md:grid grid-cols-8 text-center py-5 text-tiny lg:text-xs xl:text-sm font-medium">
             <div class="col-span-1">ОТ КУДА</div>
             <div class="col-span-1">НАПРАВЛЕНИЯ</div>
@@ -215,18 +215,33 @@
             <div class="mt-2">
                 <!-- Computer Post Screen Begin -->
                 <div
-                    class=" hidden md:grid grid-cols-8 text-center text-sm md:pr-3 lg:px-0 py-5 xl:py-3 shadow-md font-medium bg-white rounded-lg">
+                    class="{{!$customer->description ? 'bg-red-200':''}} hidden md:grid grid-cols-8 text-center text-sm md:pr-3 lg:px-0 py-5 xl:py-3 shadow-md font-medium bg-white rounded-lg">
                     <div onclick="openCaption({{$customer->id}})" id="1" class="col-span-7 grid grid-cols-7">
                         <div class="col-span-1">{{$customer->from['name_'.$locale]}}</div>
                         <div class="col-span-1">{{$customer->to['name_'.$locale]}}</div>
                         <div class="col-span-1">{{$customer->delivery_type['name_'.$locale]}}</div>
-                        <div class="col-span-1">{{$customer->weight}} T</div>
+                        <div class="col-span-1">{{$customer->weight}} KG</div>
                         <div class="col-span-1">{{$customer->load_type['name_'.$locale]}}</div>
                         <div class="col-span-1">{{$customer->daten}}</div>
-                        <div class="col-span-1">{{$customer->price}}</div>
+                        <div class="col-span-1">{{$customer->price.' '.$customer->currency['name_'.$locale]}}</div>
+
                     </div>
                     <div class="col-span-1">
-                        <a href="#" class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
+                        <div class="dropdown relative"><a href="#" class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
+                            <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
+                                <div class="dropdown-box__content box p-2">
+
+                                    @if(auth()->check())
+                                        @foreach(\App\Models\PhoneNumber::where('user_id',$customer->user->id)->select('phone_number')->get() as $phone_number)
+                                            <a href="tel:{{$phone_number->phone_number}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
+                                        @endforeach
+                                    @else
+                                        <a href="{{route('user-register',$locale)}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
+
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id="caption-{{$customer->id}}" class="col-span-8 px-5 text-left caption-hidden">
                         @if($customer->description)

@@ -144,14 +144,14 @@
                 <span class="help-block">{{ trans('cruds.customerPost.fields.area_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="date">{{ trans('cruds.customerPost.fields.date') }}</label>
-                <input class="form-control date {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date') }}">
-                @if($errors->has('date'))
+                <label for="daten">{{ trans('cruds.customerPost.fields.daten') }}</label>
+                <input class="form-control datetime {{ $errors->has('daten') ? 'is-invalid' : '' }}" type="text" name="daten" id="daten" value="{{ old('daten') }}">
+                @if($errors->has('daten'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('date') }}
+                        {{ $errors->first('daten') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.customerPost.fields.date_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.customerPost.fields.daten_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="price">{{ trans('cruds.customerPost.fields.price') }}</label>

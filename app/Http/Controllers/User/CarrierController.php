@@ -42,7 +42,6 @@ class CarrierController extends Controller
 
         $carrier_post_description->description = $request->description;
 
-
         $carrier_post = new CarrierPost();
 
         $carrier_post->user_id = auth()->user()->id;
