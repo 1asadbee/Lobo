@@ -28,7 +28,7 @@ class Declarant extends Model
         'unusual_cargo',
         'insurance',
         'status',
-//        'price',
+        'price',
         'created_at',
         'updated_at',
         'deleted_at',

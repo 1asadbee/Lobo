@@ -61,6 +61,7 @@ class CustomerController extends Controller
 
     public function addCustomer(Request $request)
     {
+//        return 'test';
         $this->validate($request, [
             'from_city' => '',
             'to_city' => '',
@@ -111,8 +112,9 @@ class CustomerController extends Controller
                 return redirect()->back()->with(['success' => 'Documents Sent']);
             }
 
-        } else
+        } else{
             return redirect()->back()->with(['fail' => 'Error Data']);
+        }
     }
 
     public function countCustomersPost(){

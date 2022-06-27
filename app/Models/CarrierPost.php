@@ -65,9 +65,12 @@ class CarrierPost extends Model
         return $this->belongsTo(Currency::class, 'currency_id');
     }
 
-    public function description()
+    public function description($carrier_post_id)
     {
-        return $this->belongsTo(CarrierPostsDescription::class, 'carrier_posts_description_id');
+
+        $carrier_post_description = CarrierPostsDescription::where('carrier_post_id',$carrier_post_id)->first();
+
+        return $carrier_post_description;
     }
 
     public function delivery_type($user_id)

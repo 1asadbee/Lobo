@@ -114,7 +114,7 @@
                         class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600">
                         <i data-feather="calendar" class="w-4 h-4"></i>
                     </div>
-                    <input type="text" name="date" required class="datepicker input w-full pl-12 border">
+                    <input type="text" name="daten" required class="datepicker input w-full pl-12 border">
                 </div>
             </div>
             <div class="col-span-6">

@@ -48,6 +48,20 @@
                 <input data-target="#basic-textual-toast" name="status"
                        class="show-code input input--switch border ml-auto mr-5" type="checkbox"  >
             </div>
+            <div class="col-span-6">
+                <label>Sena <span style="color: red">*</span></label>
+                <input type="number" name="price" class="input w-full border mt-2 flex-1"
+                       placeholder="0000" required>
+            </div>
+            <div class="col-span-6">
+                <label>Currency <span style="color: red">*</span></label>
+                <select required name="currency_id" class="input w-full border mt-2 flex-1">
+                    @foreach(\App\Models\Currency::select('id','name_'.$locale)->get() as $currency)
+                        <option value="{{$currency->id}}">{{$currency['name_'.$locale]}}</option>
+                    @endforeach
+                </select>
+            </div>
+
         </div>
         <div class="px-5 py-3 text-right border-t border-gray-200">
             <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">

@@ -19,6 +19,7 @@ class DeclarantController extends Controller
             'unusual_cargo' => '',
             'insurance' => '',
             'status' => '',
+            'price'=>'required'
         ]);
 
         $declarant = new Declarant();
@@ -31,6 +32,7 @@ class DeclarantController extends Controller
         $declarant->unusual_cargo = $request->unusual_cargo == 'on' ? 1 : 0;
         $declarant->insurance = $request->insurance == 'on' ? 1 : 0;
         $declarant->status = $request->status == 'on' ? 1 : 0;
+        $declarant->price=$request->price;
 
         if ($declarant->save()) {
 
@@ -87,6 +89,17 @@ class DeclarantController extends Controller
                 $declarants->where('insurance',null);
             }
 
+            if ($request->price_from != '' || $request->price_from != ''){
+                if ($request->price_from == ''){
+                    $request->price_from = 0;
+                }
+
+                if ($request->price_to == ''){
+                    $request->price_to = 0;
+                }
+
+                $declarants->where('price','>=',$request->price_from)->where('price','<=',$request->price_to);
+            }
 
             return view('user.declarants.index',['declarants' => $declarants->orderBy('created_at','desc')->paginate(15)]);
         }else{

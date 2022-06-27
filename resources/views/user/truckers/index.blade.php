@@ -241,14 +241,12 @@
                         <div class="dropdown relative"><a href="#" class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
                             <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                                 <div class="dropdown-box__content box p-2">
-
                                     @if(auth()->check())
                                      @foreach(\App\Models\PhoneNumber::where('user_id',$carrier_post->user->id)->select('phone_number')->get() as $phone_number)
                                         <a href="tel:{{$phone_number->phone_number}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
                                     @endforeach
                                     @else
                                         <a href="{{route('user-register',$locale)}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
-
                                     @endif
                                 </div>
                             </div>
@@ -256,8 +254,8 @@
                     </div>
 
                     <div id="caption-{{$carrier_post->id}}" class="col-span-8 px-5 text-left caption-hidden">
-                        @if($carrier_post->description)
-                            {{$carrier_post->description->description}}
+                        @if($carrier_post->description($carrier_post->id))
+                            {{$carrier_post->description($carrier_post->id)->description}}
                         @else
                             <span class="text-danger">Description not found</span>
                         @endif

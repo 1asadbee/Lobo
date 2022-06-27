@@ -55,7 +55,13 @@ class CarrierController extends Controller
         $carrier_post->currency_id = $request->currency_id;
 
 
-        if ($carrier->save() && $carrier_post_description->save() && $carrier_post->save()) {
+        if ($carrier->save() && $carrier_post->save()) {
+            $carrier_post_description->carrier_post_id = $carrier_post->id;
+
+            if ($carrier_post_description->save()){
+                return redirect()->back()->with(['success' => 'Documents Sent']);
+
+            }
 
             return redirect()->back()->with(['success' => 'Documents Sent']);
         } else
