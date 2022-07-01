@@ -5,6 +5,9 @@
         <div class="flex items-center">
             <h2 class="intro-y text-lg font-medium mr-auto">
                 Sign Up
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br/>
+                @endforeach
                 {{-- @if($errors->any())
                     {{ $all_errors = $errors }}
                 @endif --}}
@@ -36,7 +39,7 @@
 
                 <div class="wizard__line block w-3/5 xl:w-2/3 bg-gray-200 absolute mt-5"></div>
             </div>
-            <form action="{{route('register',$locale)}}" method="post">
+            <form action="{{route('user-register', ['lang' => $locale])}}" method="post">
                 @csrf
                 <div id="step-1" class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200">
                     <div class="font-medium text-base">Who are you?</div>
@@ -326,7 +329,7 @@
         function nextStep(id) {
 
             if (document.getElementById('yourrole').value == 'client') {
-                document.getElementById('step_2_div').innerHTML = '<button type="button" onclick="previuosStep(1)" class="button w-24 justify-center block bg-gray-200 text-gray-600">Previous</button><button type="button" id="registerBtn_1" class="button w-24 justify-center block bg-gray-200 text-gray-600 ml-1">Register</button>';
+                document.getElementById('step_2_div').innerHTML = '<button type="button" onclick="previuosStep(1)" class="button w-24 justify-center block bg-gray-200 text-gray-600">Previous</button><button type="submit" id="registerBtn_1" class="button w-24 justify-center block bg-gray-200 text-gray-600 ml-1">Register</button>';
             }
 
             if (document.getElementById('yourrole').value == 'carrier') {

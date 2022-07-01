@@ -31,7 +31,7 @@ Route::prefix('/{lang}')->group(function () {
     Route::get('/count-customers-post',[CustomerController::class,'countCustomersPost'])->name('count-customers-post');
 
           //Register
-    Route::get('/register',function (){return view('user.register.sign-up.index');})->name('register');
+    Route::get('/register',function (){return view('user.register.sign-up.index');})->name('user-register');
     Route::post('/register',[RegistrationController::class,'register'])->name('user-register');
     Route::get('/login',function (){return view('user.register.sign-in.index');})->name('user-login');
     Route::post('/login',[RegistrationController::class,'login'])->name('user-login');
