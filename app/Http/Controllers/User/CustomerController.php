@@ -14,6 +14,8 @@ class CustomerController extends Controller
 
     public function customers(Request $request){
 
+        $countries = \App\Models\Country::select('id','name')->orderBy('name', 'asc')->get();
+
         if ($request->search == '1'){
 
             $customers = \App\Models\CustomerPost::where('id','!=',0);
@@ -48,13 +50,13 @@ class CustomerController extends Controller
 
             $customers = $customers->orderBy('created_at','desc')->paginate(15);
 
-            return view('user.customers.index',['customers'=>$customers]);
+            return view('user.customers.index', compact('countries', 'customers'));
 
         }else{
 
             $customers = CustomerPost::orderBy('created_at','desc')->paginate(15);
 
-            return view('user.customers.index',['customers'=>$customers]);
+            return view('user.customers.index',compact('countries', 'customers'));
 
         }
     }

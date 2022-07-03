@@ -60,7 +60,7 @@
                                     </style>
                                     <select required name="from_id" class="select2 block w-full border mt-2 w-full">
                                         <option disabled selected>От куда</option>
-                                        @foreach(\App\Models\Country::select('id','name')->orderBy('name', 'asc')->get() as $country)
+                                        @foreach($countries as $country)
                                             <optgroup label="{{$country['name']}}">
                                                 @foreach(\App\Models\State::where('country_id',$country->id)->select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $state)
                                                     <option value="{{$state['id']}}">
@@ -77,7 +77,7 @@
                                 <div class="mt-2">
                                     <select required name="to_id" class="select2 block w-full border mt-2 w-full">
                                         <option disabled selected>От куда</option>
-                                        @foreach(\App\Models\Country::select('id','name')->orderBy('name', 'asc')->get() as $country)
+                                        @foreach($countries as $country)
                                             <optgroup label="{{$country['name']}}">
                                                 @foreach(\App\Models\State::where('country_id',$country->id)->select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $state)
                                                     <option

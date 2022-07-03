@@ -333,7 +333,7 @@
             }
 
             if (document.getElementById('yourrole').value == 'carrier') {
-                document.getElementById('step_2_div').innerHTML = '<button type="button" onclick="previuosStep(1)" class="button w-24 justify-center block bg-gray-200 text-gray-600">Previous</button><button id="second_next_button" type="button" onclick="" class="button w-24 justify-center block bg-gray-200 text-gray-600 ml-1">Next</button>';
+                document.getElementById('step_2_div').innerHTML = '<button type="button" onclick="previuosStep(1)" class="button w-24 justify-center block bg-gray-200 text-gray-600">Previous</button><button id="second_next_button" type="button" onclick="nextStep(3)" class="button w-24 justify-center block bg-gray-200 text-gray-600 ml-1">Next</button>';
                 document.getElementById('second_next_button').style.display = 'block';
                 document.getElementById('card_number_title_3').style.display = 'block';
                 document.getElementById('card_number_title_3_title').innerHTML = 'Your Car';
@@ -342,7 +342,7 @@
             }
 
             if (document.getElementById('yourrole').value == 'declarant') {
-                document.getElementById('step_2_div').innerHTML = '<button type="button" onclick="previuosStep(1)" class="button w-24 justify-center block bg-gray-200 text-gray-600">Previous</button><button id="second_next_button" type="button" onclick="" class="button w-24 justify-center block bg-gray-200 text-gray-600 ml-1">Next</button>';
+                document.getElementById('step_2_div').innerHTML = '<button type="button" onclick="previuosStep(1)" class="button w-24 justify-center block bg-gray-200 text-gray-600">Previous</button><button id="second_next_button" type="button" onclick="nextStep(3)" class="button w-24 justify-center block bg-gray-200 text-gray-600 ml-1">Next</button>';
                 document.getElementById('second_next_button').style.display = 'block';
                 document.getElementById('card_number_title_3').style.display = 'block';
                 document.getElementById('card_number_title_3_title').innerHTML = "Declarant's Status";
@@ -485,9 +485,9 @@
             });
         })
 
-        {{--function vehicle_type(){--}}
-        {{--    $('#vehicle_type_div').load('{{route('input-function',$locale)}}?vehicle=' + document.getElementById('vehicle').value)--}}
-        {{--}--}}
+        function vehicle_type(){
+            $('#vehicle_type_div').load('{{route('input-function',$locale)}}?vehicle=' + document.getElementById('vehicle').value)
+        }
 
         function openCompanyName(){
             var company_name = document.getElementById('company_name');
