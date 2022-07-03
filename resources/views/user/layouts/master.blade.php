@@ -31,6 +31,15 @@
         <a href="{{route('home',$locale)}}" class="flex mr-auto text-white font-bold text-xl">
             LOBO
         </a>
+        <div class="dropdown relative mr-2">
+            <button class="dropdown-toggle button box text-gray-700 flex items-center"> English <i class="w-4 h-4 ml-2" data-feather="chevron-down"></i> </button>
+            <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
+                <div class="dropdown-box__content box p-2">
+                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="activity" class="w-4 h-4 mr-2"></i> <span class="truncate">English</span> </a>
+                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="activity" class="w-4 h-4 mr-2"></i> <span class="truncate">Indonesian</span> </a>
+                </div>
+            </div>
+        </div>
         <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2"
                                                             class="w-8 h-8 text-white transform -rotate-90"></i> </a>
     </div>
@@ -150,8 +159,8 @@
                 <button class="dropdown-toggle button box text-gray-700 flex items-center"> English <i class="w-4 h-4 ml-2" data-feather="chevron-down"></i> </button>
                 <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                     <div class="dropdown-box__content box p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="activity" class="w-4 h-4 mr-2"></i> <span class="truncate">English</span> </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="activity" class="w-4 h-4 mr-2"></i> <span class="truncate">Indonesian</span> </a>
+                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="flag" class="w-4 h-4 mr-2"></i> <span class="truncate">English</span> </a>
+                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="flag" class="w-4 h-4 mr-2"></i> <span class="truncate">Indonesian</span> </a>
                     </div>
                 </div>
             </div>

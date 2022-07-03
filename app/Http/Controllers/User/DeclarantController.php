@@ -20,7 +20,7 @@ class DeclarantController extends Controller
             'unusual_cargo' => '',
             'insurance' => '',
             'status' => '',
-            'description' => '',
+            'description' => 'required',
             'currency_id' => 'required',
             'price' => 'required'
         ]);
