@@ -14,7 +14,7 @@ class AddpricetodeclarantsTable extends Migration
     public function up()
     {
         Schema::table('declarants',function (Blueprint $table){
-            $table->integer('price');
+            $table->integer('price')->nullable();
         });
     }
 

@@ -83,7 +83,7 @@ class RegistrationController extends Controller
         if ($user->save()) {
             if ($request->role == 'carrier') {
                 $this->validate($request, [
-                    'vehicle_number' => 'min:100|required',
+                    'vehicle_number' => 'required',
                     'who_are_you' => 'required',
                     'vehicle_model' => 'required',
                     'delivery_type' => 'required',
