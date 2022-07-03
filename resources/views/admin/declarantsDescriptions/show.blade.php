@@ -28,7 +28,7 @@
                             {{ trans('cruds.declarantsDescription.fields.declarant') }}
                         </th>
                         <td>
-                            {{ $declarantsDescription->declarant->declaration ?? '' }}
+                            {{ $declarantsDescription->declarant->id ?? '' }}
                         </td>
                     </tr>
                     <tr>

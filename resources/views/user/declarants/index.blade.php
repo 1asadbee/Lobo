@@ -14,13 +14,16 @@
         </a>
         <!-- Modal -->
         <div class="modal" id="header-footer-modal-preview-3">
-            <div class="modal__content">
-                <div class="text-center ">
-                    <p class="text-10 mb-6">Siz muvofiqiyatli otdingiz</p>
+            <div class="modal__content relative"><a data-dismiss="modal" href="javascript:;"
+                                                    class="absolute right-0 top-0 mt-3 mr-3"> <i data-feather="x"
+                                                                                                 class="w-8 h-8 text-gray-500"></i>
+                </a>
+                <div class="p-5 text-center"><i data-feather="check-circle"
+                                                class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                    <div class="text-3xl mt-5">Siz muvofaqatli otdingiz</div>
                 </div>
-                <div class="px-5 py-20 text-lime-700 text-center border-t border-gray-200">
-                    <button type="button" data-dismiss="modal" class="button w-20 border bg-theme-1 text-white">OK
-                    </button>
+                <div class="px-5 pb-8 text-center">
+                    <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button>
                 </div>
             </div>
         </div>
@@ -92,14 +95,6 @@
                 </a>
                 <div class="modal" id="header-footer-modal-preview-2">
                     @switch(auth()->user()->roles[0]['id'])
-                        @case(\App\Models\User::CUSTOMER)
-                        @include('user.layouts.add-form.add-customer-post')
-                        @break
-
-                        @case(\App\Models\User::CARRIER)
-                        @include('user.layouts.add-form.add-trucker-post')
-                        @break
-
                         @case(\App\Models\User::DECLARANT)
                         @include('user.layouts.add-form.add-declarant-post')
                         @break
@@ -242,8 +237,8 @@
                     </div>
                     <div class="col-span-1 text-white @if($declarant->status == 1) bg-theme-9 @elseif($declarant->status == 0) bg-theme-6 @endif rounded">@if($declarant->status == 1) Свободно @elseif($declarant->status == 0) Зайнет @endif
                     </div>
-
-                    <div class="col-span-1">5000$</div>
+{{--                    <div class="col-span-1">5000$</div>--}}
+                    <div class="col-span-1">{{$declarant->price.' '.$declarant->currency['name_'.$locale]}}</div>
                 </div>
 
                 <div class="col-span-1">

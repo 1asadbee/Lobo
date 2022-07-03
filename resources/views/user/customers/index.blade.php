@@ -1,7 +1,11 @@
 @extends('user.layouts.master')
 
-@section('board-title') ДОСКА ЗАКАЗЧИКА @endsection
-@section('customers') side-menu--active @endsection
+@section('board-title')
+    ДОСКА ЗАКАЗЧИКА
+@endsection
+@section('customers')
+    side-menu--active
+@endsection
 @section('filter-bar')
 
     <!-- Button trigger modal -->
@@ -14,13 +18,16 @@
         </a>
         <!-- Modal -->
         <div class="modal" id="header-footer-modal-preview-3">
-            <div class="modal__content">
-                <div class="text-center ">
-                    <p class="text-10 mb-6">Siz muvofiqiyatli otdingiz</p>
+            <div class="modal__content relative"><a data-dismiss="modal" href="javascript:;"
+                                                    class="absolute right-0 top-0 mt-3 mr-3"> <i data-feather="x"
+                                                                                                 class="w-8 h-8 text-gray-500"></i>
+                </a>
+                <div class="p-5 text-center"><i data-feather="check-circle"
+                                                class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                    <div class="text-3xl mt-5">Siz muvofaqatli otdingiz</div>
                 </div>
-                <div class="px-5 py-20 text-lime-700 text-center border-t border-gray-200">
-                    <button type="button" data-dismiss="modal" class="button w-20 border bg-theme-1 text-white">OK
-                    </button>
+                <div class="px-5 pb-8 text-center">
+                    <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button>
                 </div>
             </div>
         </div>
@@ -98,7 +105,8 @@
                                 <select required name="vehicle_type_id" class="input w-full border mt-2 flex-1">
                                     <option disabled selected>Vehicle Type</option>
                                     @foreach(\App\Models\VehicleType::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $vehicle_type)
-                                        <option value="{{$vehicle_type->id}}">{{$vehicle_type['name_'.$locale]}}</option>
+                                        <option
+                                            value="{{$vehicle_type->id}}">{{$vehicle_type['name_'.$locale]}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -106,7 +114,7 @@
                                 <label>Load Type <span style="color: red">*</span></label>
                                 <select required name="load_type_id" class="input w-full border mt-2 flex-1">
                                     <option disabled selected>Load Type</option>
-                                @foreach(\App\Models\LoadType::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $load_type)
+                                    @foreach(\App\Models\LoadType::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $load_type)
                                         <option value="{{$load_type->id}}">{{$load_type['name_'.$locale]}}</option>
                                     @endforeach
                                 </select>
@@ -138,7 +146,8 @@
                                         class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600">
                                         <i data-feather="calendar" class="w-4 h-4"></i>
                                     </div>
-                                    <input type="text" name="date" required class="datepicker input w-full pl-12 border">
+                                    <input type="text" name="date" required
+                                           class="datepicker input w-full pl-12 border">
                                 </div>
                             </div>
                             <div class="col-span-6">
@@ -159,41 +168,40 @@
                             <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">
                                 Cancel
                             </button>
-                            <button type="submit" name="search" value="1" class="button w-20 bg-theme-1 text-white">Search</button>
+                            <button type="submit" name="search" value="1" class="button w-20 bg-theme-1 text-white">
+                                Search
+                            </button>
                         </div>
                     </div>
 
-            </div>                </form>
+                </div>
+            </form>
 
         </div>
         @auth()
-            <div class="dropdown relative">
-                <a href="javascript:;" data-toggle="modal" data-target="#header-footer-modal-preview-2">
-                    <button class="dropdown-toggle button px-2 box text-gray-700">
+            @can('user_interface')
+                <div class="dropdown relative">
+                    <a href="javascript:;" data-toggle="modal" data-target="#header-footer-modal-preview-2">
+                        <button class="dropdown-toggle button px-2 box text-gray-700">
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4"
                                                                                    data-feather="plus"></i> </span>
-                    </button>
-                </a>
-                <div class="modal" id="header-footer-modal-preview-2">
-                    @switch(auth()->user()->roles[0]['id'])
-                        @case(\App\Models\User::CUSTOMER)
-                        @include('user.layouts.add-form.add-customer-post')
-                        @break
-
-                        @case(\App\Models\User::CARRIER)
-                        @include('user.layouts.add-form.add-trucker-post')
-                        @break
-
-                        @case(\App\Models\User::DECLARANT)
-                        @include('user.layouts.add-form.add-declarant-post')
-                        @break
-                    @endswitch
+                        </button>
+                    </a>
+                    <div class="modal" id="header-footer-modal-preview-2">
+                        @switch(auth()->user()->roles[0]['id'])
+                            @case(\App\Models\User::CUSTOMER)
+                                @include('user.layouts.add-form.add-customer-post')
+                                @break
+                        @endswitch
+                    </div>
                 </div>
-            </div>
+            @endcan
         @endauth
-{{--        <div class="hidden md:block mx-auto text-gray-600">Показано от 1 до 10 из 150 загрузок</div>--}}
-        <button onclick="location.reload();" class="button text-white bg-theme-1 shadow-md mr-2 px-10 float-right ml-auto">Обновить
-            <span style="display: none" id="new-posts" class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">0</span>
+        {{--        <div class="hidden md:block mx-auto text-gray-600">Показано от 1 до 10 из 150 загрузок</div>--}}
+        <button onclick="location.reload();"
+                class="button text-white bg-theme-1 shadow-md mr-2 px-10 float-right ml-auto">Обновить
+            <span style="display: none" id="new-posts"
+                  class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">0</span>
         </button>
     </div>
 @endsection
@@ -227,16 +235,19 @@
 
                     </div>
                     <div class="col-span-1">
-                        <div class="dropdown relative"><a href="#" class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
+                        <div class="dropdown relative"><a href="#"
+                                                          class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
                             <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                                 <div class="dropdown-box__content box p-2">
 
                                     @if(auth()->check())
                                         @foreach(\App\Models\PhoneNumber::where('user_id',$customer->user->id)->select('phone_number')->get() as $phone_number)
-                                            <a href="tel:{{$phone_number->phone_number}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
+                                            <a href="tel:{{$phone_number->phone_number}}"
+                                               class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
                                         @endforeach
                                     @else
-                                        <a href="{{route('user-register',$locale)}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
+                                        <a href="{{route('user-register',$locale)}}"
+                                           class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
 
                                     @endif
                                 </div>
@@ -292,7 +303,8 @@
                             <span>Железо</span>
                         </div>
                     </div>
-                    <div id="caption-2" class="col-span-12 text-left caption-hidden">Lorem ipsum dolor sit amet, consectetur
+                    <div id="caption-2" class="col-span-12 text-left caption-hidden">Lorem ipsum dolor sit amet,
+                        consectetur
                         adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -331,12 +343,12 @@
             }
         @endphp
 
-        var intervalId = window.setInterval(function(){
+        var intervalId = window.setInterval(function () {
             $('#new-count').load('{{route('count-customers-post',$locale)}}');
             var count = document.getElementById('count').innerHTML;
             var new_count = document.getElementById('new-count').innerHTML;
-            if (count < new_count){
-                if (document.getElementById('new-posts').innerHTML != new_count - count){
+            if (count < new_count) {
+                if (document.getElementById('new-posts').innerHTML != new_count - count) {
                     document.getElementById('new-posts').innerHTML = new_count - count;
                     document.getElementById('new-posts').style.display = 'block';
                 }

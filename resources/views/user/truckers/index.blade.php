@@ -1,7 +1,11 @@
 @extends('user.layouts.master')
 
-@section('board-title') ДОСКА ДАЛЬНОБОЙЩИКА @endsection
-@section('truckers') side-menu--active @endsection
+@section('board-title')
+    ДОСКА ДАЛЬНОБОЙЩИКА
+@endsection
+@section('truckers')
+    side-menu--active
+@endsection
 @section('filter-bar')
 
     <!-- Button trigger modal -->
@@ -13,18 +17,21 @@
             </button>
         </a>
         <!-- Modal -->
+
         <div class="modal" id="header-footer-modal-preview-3">
-            <div class="modal__content">
-                <div class="text-center ">
-                    <p class="text-10 mb-6">Siz muvofiqiyatli otdingiz</p>
+            <div class="modal__content relative"><a data-dismiss="modal" href="javascript:;"
+                                                    class="absolute right-0 top-0 mt-3 mr-3"> <i data-feather="x"
+                                                                                                 class="w-8 h-8 text-gray-500"></i>
+                </a>
+                <div class="p-5 text-center"><i data-feather="check-circle"
+                                                class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                    <div class="text-3xl mt-5">Siz muvofaqatli otdingiz</div>
                 </div>
-                <div class="px-5 py-20 text-lime-700 text-center border-t border-gray-200">
-                    <button type="button" data-dismiss="modal" class="button w-20 border bg-theme-1 text-white">OK
-                    </button>
+                <div class="px-5 pb-8 text-center">
+                    <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button>
                 </div>
             </div>
         </div>
-    </div>
 
 
     <div class="intro-y col-span-12 hidden sm:flex flex-wrap sm:flex-no-wrap items-center mt-2">
@@ -38,177 +45,179 @@
                     <h2 class="font-medium text-base mr-auto">Поиск транспорта</h2>
                 </div>
                 <form action="{{route('truckers',$locale)}}">
-                <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
-                    <div class="col-span-12 sm:col-span-6">
-                        <label>От куда</label>
-                        <div class="mt-2">
-                            <style type="text/css">
-                                .select2-container {
-                                    width: 100% !important;
-                                }
-                            </style>
-                            <select name="from_id" class="select2 block w-full border mt-2 w-full">
-                                <option disabled selected>От куда</option>
-                                @foreach(\App\Models\Country::select('id','name')->orderBy('name', 'asc')->get() as $country)
-                                    <optgroup label="{{$country['name']}}">
-                                        @foreach(\App\Models\State::where('country_id',$country->id)->select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $state)
-                                            <option
-                                                value="{{$state['id']}}">{{$state['name_'.$locale]}}</option>
-                                        @endforeach
-                                    </optgroup>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6">
-                        <label>Направления</label>
-                        <div class="mt-2">
-                            <select name="to_id" class="select2 block w-full border mt-2">
-                                <option disabled selected>От куда</option>
-                                @foreach(\App\Models\Country::select('id','name')->orderBy('name', 'asc')->get() as $country)
-                                    <optgroup label="{{$country['name']}}">
-                                        @foreach(\App\Models\State::where('country_id',$country->id)->select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $state)
-                                            <option
-                                                value="{{$state['id']}}">{{$state['name_'.$locale]}}</option>
-                                        @endforeach
-                                    </optgroup>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-span-6">
-                        <label>Vehicle Model <span style="color: red">*</span></label>
-                        <select required name="vehicle_model_id" class="input w-full border mt-2 flex-1">
-                            <option disabled selected>Vehicle Model</option>
-                            @foreach(\App\Models\VehicleModel::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $vehicle_model)
-                                <option value="{{$vehicle_model->id}}">{{$vehicle_model['name_'.$locale]}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="intro-y col-span-12 sm:col-span-6">
-                        <div class="mb-2">Delivery Type</div>
-                        <select onchange="activateRegisterBtn('your_car',2)" id="delivery_type"
-                                name="delivery_type_id"
-                                class="input w-full border @error('delivery_type') border-theme-6 @enderror flex-1 your_car">
-                            <option disabled selected>Delivery Type</option>
-                            @foreach(\App\Models\DeliveryType::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $delivery_type)
-                                <option
-                                    value="{{$delivery_type->id}}" @if($delivery_type->id == old('delivery_type')) selected @endif>{{$delivery_type['name_'.$locale]}}</option>
-                            @endforeach
-                        </select>
-                        @error('delivery_type')
-                        <div class="text-theme-6 mt-2">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div id="vehicle_div" class="intro-y col-span-12 sm:col-span-6">
-                        <div class="mb-2">Vehicle</div>
-                        <select name="vehicle_id" class="input w-full border flex-1 your_car">
-                            <option disabled selected>Vehicle</option>
-                        </select>
-                    </div>
-                    <div id="vehicle_type_div" class="intro-y col-span-12 sm:col-span-6">
-                        <div class="mb-2">Vehicle Types</div>
-                        <select name="vehicle_type_id" class="input w-full border flex-1 your_car">
-                            <option disabled selected>Vehicle Types</option>
-                        </select>
-                    </div>
-                    <div class="col-span-6">
-                        <label>Free Weight</label>
-                        <input type="number" name="free_weight" class="input w-full border mt-2 flex-1" placeholder="kg">
-                    </div>
-                    <div class="col-span-6">
-                        <label>Height</label>
-                        <input type="number" name="height" placeholder="meter" class="input w-full border mt-2 flex-1">
-                    </div>
-                    <div class="col-span-6">
-                        <label>Width</label>
-                        <input type="number" name="width" placeholder="meter" class="input w-full border mt-2 flex-1">
-                    </div>
-                    <div class="col-span-6">
-                        <label>Length</label>
-                        <input type="number" name="length" placeholder="meter" class="input w-full border mt-2 flex-1">
-                    </div>
-                    <div class="col-span-12">
-                        <label>Departure</label>
-                        <div class="relative mx-auto mt-2">
-                            <div
-                                class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600">
-                                <i data-feather="calendar" class="w-4 h-4"></i>
+                    <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
+                        <div class="col-span-12 sm:col-span-6">
+                            <label>От куда</label>
+                            <div class="mt-2">
+                                <style type="text/css">
+                                    .select2-container {
+                                        width: 100% !important;
+                                    }
+                                </style>
+                                <select name="from_id" class="select2 block w-full border mt-2 w-full">
+                                    <option disabled selected>От куда</option>
+                                    @foreach(\App\Models\Country::select('id','name')->orderBy('name', 'asc')->get() as $country)
+                                        <optgroup label="{{$country['name']}}">
+                                            @foreach(\App\Models\State::where('country_id',$country->id)->select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $state)
+                                                <option
+                                                    value="{{$state['id']}}">{{$state['name_'.$locale]}}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    @endforeach
+                                </select>
                             </div>
-                            <input type="text" name="departure" class="datepicker input w-full pl-12 border">
                         </div>
-                    </div>
-                    <div class="col-span-6">
-                        <label>Sena From</label>
-                        <input type="number" name="price_from" class="input w-full border mt-2 flex-1" placeholder="0000">
-                    </div>
-{{--                    <div class="col-span-6">--}}
-{{--                        <label>Currency</label>--}}
-{{--                        <select required name="currency_from_id" class="input w-full border mt-2 flex-1">--}}
-{{--                            <option disabled selected>Currency</option>--}}
-{{--                            @foreach(\App\Models\Currency::select('id','name_'.$locale)->get() as $currency)--}}
-{{--                                <option value="{{$currency->id}}">{{$currency['name_'.$locale]}}</option>--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
+                        <div class="col-span-12 sm:col-span-6">
+                            <label>Направления</label>
+                            <div class="mt-2">
+                                <select name="to_id" class="select2 block w-full border mt-2">
+                                    <option disabled selected>От куда</option>
+                                    @foreach(\App\Models\Country::select('id','name')->orderBy('name', 'asc')->get() as $country)
+                                        <optgroup label="{{$country['name']}}">
+                                            @foreach(\App\Models\State::where('country_id',$country->id)->select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $state)
+                                                <option
+                                                    value="{{$state['id']}}">{{$state['name_'.$locale]}}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-span-6">
+                            <label>Vehicle Model <span style="color: red">*</span></label>
+                            <select required name="vehicle_model_id" class="input w-full border mt-2 flex-1">
+                                <option disabled selected>Vehicle Model</option>
+                                @foreach(\App\Models\VehicleModel::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $vehicle_model)
+                                    <option value="{{$vehicle_model->id}}">{{$vehicle_model['name_'.$locale]}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="intro-y col-span-12 sm:col-span-6">
+                            <div class="mb-2">Delivery Type</div>
+                            <select onchange="activateRegisterBtn('your_car',2)" id="delivery_type"
+                                    name="delivery_type_id"
+                                    class="input w-full border @error('delivery_type') border-theme-6 @enderror flex-1 your_car">
+                                <option disabled selected>Delivery Type</option>
+                                @foreach(\App\Models\DeliveryType::select('id','name_'.$locale)->orderBy('name_'.$locale, 'asc')->get() as $delivery_type)
+                                    <option
+                                        value="{{$delivery_type->id}}"
+                                        @if($delivery_type->id == old('delivery_type')) selected @endif>{{$delivery_type['name_'.$locale]}}</option>
+                                @endforeach
+                            </select>
+                            @error('delivery_type')
+                            {{--                        <div class="text-theme-6 mt-2">{{ $message }}</div>--}}
+                            @enderror
+                        </div>
+                        <div id="vehicle_div" class="intro-y col-span-12 sm:col-span-6">
+                            <div class="mb-2">Vehicle</div>
+                            <select name="vehicle_id" class="input w-full border flex-1 your_car">
+                                <option disabled selected>Vehicle</option>
+                            </select>
+                        </div>
+                        <div id="vehicle_type_div" class="intro-y col-span-12 sm:col-span-6">
+                            <div class="mb-2">Vehicle Types</div>
+                            <select name="vehicle_type_id" class="input w-full border flex-1 your_car">
+                                <option disabled selected>Vehicle Types</option>
+                            </select>
+                        </div>
+                        <div class="col-span-6">
+                            <label>Free Weight</label>
+                            <input type="number" name="free_weight" class="input w-full border mt-2 flex-1"
+                                   placeholder="kg">
+                        </div>
+                        <div class="col-span-6">
+                            <label>Height</label>
+                            <input type="number" name="height" placeholder="meter"
+                                   class="input w-full border mt-2 flex-1">
+                        </div>
+                        <div class="col-span-6">
+                            <label>Width</label>
+                            <input type="number" name="width" placeholder="meter"
+                                   class="input w-full border mt-2 flex-1">
+                        </div>
+                        <div class="col-span-6">
+                            <label>Length</label>
+                            <input type="number" name="length" placeholder="meter"
+                                   class="input w-full border mt-2 flex-1">
+                        </div>
+                        <div class="col-span-12">
+                            <label>Departure</label>
+                            <div class="relative mx-auto mt-2">
+                                <div
+                                    class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600">
+                                    <i data-feather="calendar" class="w-4 h-4"></i>
+                                </div>
+                                <input type="text" name="departure" class="datepicker input w-full pl-12 border">
+                            </div>
+                        </div>
+                        <div class="col-span-6">
+                            <label>Sena From</label>
+                            <input type="number" name="price_from" class="input w-full border mt-2 flex-1"
+                                   placeholder="0000">
+                        </div>
+                        {{--                    <div class="col-span-6">--}}
+                        {{--                        <label>Currency</label>--}}
+                        {{--                        <select required name="currency_from_id" class="input w-full border mt-2 flex-1">--}}
+                        {{--                            <option disabled selected>Currency</option>--}}
+                        {{--                            @foreach(\App\Models\Currency::select('id','name_'.$locale)->get() as $currency)--}}
+                        {{--                                <option value="{{$currency->id}}">{{$currency['name_'.$locale]}}</option>--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </select>--}}
+                        {{--                    </div>--}}
 
-                    <div class="col-span-6">
-                        <label>Sena To</label>
-                        <input type="number" name="price_to" class="input w-full border mt-2 flex-1" placeholder="0000">
+                        <div class="col-span-6">
+                            <label>Sena To</label>
+                            <input type="number" name="price_to" class="input w-full border mt-2 flex-1"
+                                   placeholder="0000">
+                        </div>
+                        {{--                    <div class="col-span-6">--}}
+                        {{--                        <label>Currency</label>--}}
+                        {{--                        <select required name="currency_to_id" class="input w-full border mt-2 flex-1">--}}
+                        {{--                            <option disabled selected>Currency</option>--}}
+                        {{--                            @foreach(\App\Models\Currency::select('id','name_'.$locale)->get() as $currency)--}}
+                        {{--                                <option value="{{$currency->id}}">{{$currency['name_'.$locale]}}</option>--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </select>--}}
+                        {{--                    </div>--}}
                     </div>
-{{--                    <div class="col-span-6">--}}
-{{--                        <label>Currency</label>--}}
-{{--                        <select required name="currency_to_id" class="input w-full border mt-2 flex-1">--}}
-{{--                            <option disabled selected>Currency</option>--}}
-{{--                            @foreach(\App\Models\Currency::select('id','name_'.$locale)->get() as $currency)--}}
-{{--                                <option value="{{$currency->id}}">{{$currency['name_'.$locale]}}</option>--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-                </div>
-                <div class="px-5 py-3 text-right border-t border-gray-200">
-                    <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">Cancel
-                    </button>
-                    <button type="submit" name="search" value="1
-" class="button w-20 bg-theme-1 text-white">Search</button>
-                </div>
+                    <div class="px-5 py-3 text-right border-t border-gray-200">
+                        <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">Cancel
+                        </button>
+                        <button type="submit" name="search" value="1
+" class="button w-20 bg-theme-1 text-white">Search
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
         @auth()
-        <div class="dropdown relative">
-            <a href="javascript:;" data-toggle="modal" data-target="#header-footer-modal-preview-2">
-                <button class="dropdown-toggle button px-2 box text-gray-700">
+            <div class="dropdown relative">
+                <a href="javascript:;" data-toggle="modal" data-target="#header-footer-modal-preview-2">
+                    <button class="dropdown-toggle button px-2 box text-gray-700">
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4"
                                                                                    data-feather="plus"></i> </span>
-                </button>
-            </a>
-            <div class="modal" id="header-footer-modal-preview-2">
-                @switch(auth()->user()->roles[0]['id'])
-                    @case(\App\Models\User::CUSTOMER)
-                        @include('user.layouts.add-form.add-customer-post')
-                    @break
-
-                    @case(\App\Models\User::CARRIER)
-                        @include('user.layouts.add-form.add-trucker-post')
-                    @break
-
-                    @case(\App\Models\User::DECLARANT)
-                        @include('user.layouts.add-form.add-declarant-post')
-                    @break
-                @endswitch
+                    </button>
+                </a>
+                <div class="modal" id="header-footer-modal-preview-2">
+                    @switch(auth()->user()->roles[0]['id'])
+                        @case(\App\Models\User::CARRIER)
+                            @include('user.layouts.add-form.add-trucker-post')
+                            @break
+                    @endswitch
+                </div>
             </div>
-        </div>
         @endauth
-{{--        <div class="hidden md:block mx-auto text-gray-600">Показано от 1 до 10 из 150 загрузок</div>--}}
-        <button onclick="location.reload();" class="button text-white bg-theme-1 shadow-md mr-2 px-10 float-right ml-auto">Обновить
-            <span style="display: none" id="new-posts" class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">0</span>
+        {{--        <div class="hidden md:block mx-auto text-gray-600">Показано от 1 до 10 из 150 загрузок</div>--}}
+        <button onclick="location.reload();"
+                class="button text-white bg-theme-1 shadow-md mr-2 px-10 float-right ml-auto">Обновить
+            <span style="display: none" id="new-posts"
+                  class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">0</span>
         </button>
     </div>
 @endsection
 @section('data-list')
     <!-- BEGIN: Data List -->
-    <div  class="intro-y col-span-12 lg:overflow-visible">
+    <div class="intro-y col-span-12 lg:overflow-visible">
         <div class="hidden md:grid grid-cols-9 text-center py-5 text-tiny lg:text-xs xl:text-sm font-medium">
             <div class="col-span-1">ОТ КУДА</div>
             <div class="col-span-1">НАПРАВЛЕНИЯ</div>
@@ -222,7 +231,7 @@
         </div>
         @php $i = 0; @endphp
         @foreach($carrier_posts as $carrier_post)
-{{--@dd($carrier_post)--}}
+            {{--@dd($carrier_post)--}}
             <div @if($i == 0) @php $i = $i + 1; @endphp @else class=" md:mt-2" @endif>
                 <!-- Computer Post Screen Begin -->
                 <div
@@ -230,23 +239,37 @@
                     <div onclick="openCaption({{$carrier_post->id}})" id="1" class="col-span-8 grid grid-cols-8">
                         <div class="col-span-1">{{$carrier_post->from['name_'.$locale]}}</div>
                         <div class="col-span-1">{{$carrier_post->to['name_'.$locale]}}</div>
-                        <div class="col-span-1">{{$carrier_post->delivery_type($carrier_post->user->id)['name_'.$locale]}}/{{$carrier_post->vehicle_type($carrier_post->user->id)['name_'.$locale]}}</div>
+                        <div
+                            class="col-span-1">{{$carrier_post->delivery_type($carrier_post->user->id)['name_'.$locale]}}
+                            /{{$carrier_post->vehicle_type($carrier_post->user->id)['name_'.$locale]}}</div>
                         <div class="col-span-1">{{$carrier_post->free_weight}} t</div>
-                        <div class="col-span-1 font-bold">{{$carrier_post->trailer_size($carrier_post->user->id)->length.'m x '.$carrier_post->trailer_size($carrier_post->user->id)->width.'m x '.$carrier_post->trailer_size($carrier_post->user->id)->height.'m'}}</div>
-                        <div class="col-span-1 font-bold">{{date('d.m.Y', strtotime($carrier_post->departure_time))}}</div>
-                        <div class="col-span-1 text-white @if($carrier_post->status == 1) bg-theme-9 @elseif($carrier_post->status == 0) bg-theme-6 @endif rounded">@if($carrier_post->status == 1) Svoboden @elseif($carrier_post->status == 0) Zaynet @endif</div>
-                        <div class="col-span-1">{{$carrier_post->price.' '.$carrier_post->currency['name_'.$locale]}}</div>
+                        <div
+                            class="col-span-1 font-bold">{{$carrier_post->trailer_size($carrier_post->user->id)->length.'m x '.$carrier_post->trailer_size($carrier_post->user->id)->width.'m x '.$carrier_post->trailer_size($carrier_post->user->id)->height.'m'}}</div>
+                        <div
+                            class="col-span-1 font-bold">{{date('d.m.Y', strtotime($carrier_post->departure_time))}}</div>
+                        <div
+                            class="flex items-center justify-center @if($carrier_post->status == 1) text-theme-9 @elseif($carrier_post->status == 0)text-theme-6 @endif">@if($carrier_post->status == 1)
+                                <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Bosh
+                            @elseif($carrier_post->status == 0)
+                                <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Band
+                            @endif </div>
+                        {{--                        <div class="col-span-1 text-white @if($carrier_post->status == 1) bg-theme-9 @elseif($carrier_post->status == 0) bg-theme-6 @endif rounded">@if($carrier_post->status == 1) Svoboden @elseif($carrier_post->status == 0) Zaynet @endif</div>--}}
+                        <div
+                            class="col-span-1">{{$carrier_post->price.' '.$carrier_post->currency['name_'.$locale]}}</div>
                     </div>
                     <div class="col-span-1">
-                        <div class="dropdown relative"><a href="#" class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
+                        <div class="dropdown relative"><a href="#"
+                                                          class="button w-24 shadow-md mr-1 mb-2 bg-theme-9 text-white">связьция</a>
                             <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                                 <div class="dropdown-box__content box p-2">
                                     @if(auth()->check())
-                                     @foreach(\App\Models\PhoneNumber::where('user_id',$carrier_post->user->id)->select('phone_number')->get() as $phone_number)
-                                        <a href="tel:{{$phone_number->phone_number}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
-                                    @endforeach
+                                        @foreach(\App\Models\PhoneNumber::where('user_id',$carrier_post->user->id)->select('phone_number')->get() as $phone_number)
+                                            <a href="tel:{{$phone_number->phone_number}}"
+                                               class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">{{$phone_number->phone_number}}</a>
+                                        @endforeach
                                     @else
-                                        <a href="{{route('user-register',$locale)}}" class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
+                                        <a href="{{route('user-register',$locale)}}"
+                                           class="block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">Register</a>
                                     @endif
                                 </div>
                             </div>
@@ -354,12 +377,12 @@
             });
         })
 
-        var intervalId = window.setInterval(function(){
+        var intervalId = window.setInterval(function () {
             $('#new-count').load('{{route('count-carriers-post',$locale)}}');
             var count = document.getElementById('count').innerHTML;
             var new_count = document.getElementById('new-count').innerHTML;
-            if (count < new_count){
-                if (document.getElementById('new-posts').innerHTML != new_count - count){
+            if (count < new_count) {
+                if (document.getElementById('new-posts').innerHTML != new_count - count) {
                     document.getElementById('new-posts').innerHTML = new_count - count;
                     document.getElementById('new-posts').style.display = 'block';
                 }

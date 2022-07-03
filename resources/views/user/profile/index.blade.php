@@ -12,9 +12,7 @@
 
     <div class="modal" id="header-footer-modal-preview">
         <div class="modal__content">
-
             <form id="contact_us_sweet" action="{{route('admin.test')}}">
-
                 @csrf
                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                 <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">

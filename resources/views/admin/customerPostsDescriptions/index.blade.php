@@ -28,9 +28,7 @@
                         <th>
                             {{ trans('cruds.customerPostsDescription.fields.customer_post') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.customerPost.fields.date') }}
-                        </th>
+
                         <th>
                             &nbsp;
                         </th>
@@ -46,11 +44,9 @@
                                 {{ $customerPostsDescription->id ?? '' }}
                             </td>
                             <td>
-                                {{ $customerPostsDescription->customer_post->date ?? '' }}
+                                {{ $customerPostsDescription->customer_post->id ?? '' }}
                             </td>
-                            <td>
-                                {{ $customerPostsDescription->customer_post->date ?? '' }}
-                            </td>
+
                             <td>
                                 @can('customer_posts_description_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.customer-posts-descriptions.show', $customerPostsDescription->id) }}">
@@ -130,7 +126,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

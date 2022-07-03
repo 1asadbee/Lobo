@@ -24,6 +24,7 @@ class DeclarantController extends Controller
 
         $declarant = new Declarant();
 
+        $declarant->user_id = auth()->user()->id;
         $declarant->declaration = $request->declaration == 'on' ? 1 : 0;
         $declarant->settlement_fee = $request->settlement_fee == 'on' ? 1 : 0;
         $declarant->registration_certificate = $request->registration_certificate == 'on' ? 1 : 0;

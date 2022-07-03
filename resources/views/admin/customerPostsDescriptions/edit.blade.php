@@ -14,7 +14,7 @@
                 <label class="required" for="customer_post_id">{{ trans('cruds.customerPostsDescription.fields.customer_post') }}</label>
                 <select class="form-control select2 {{ $errors->has('customer_post') ? 'is-invalid' : '' }}" name="customer_post_id" id="customer_post_id" required>
                     @foreach($customer_posts as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('customer_post_id') ? old('customer_post_id') : $customerPostsDescription->customer_post->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                        <option value="{{ $id }}" {{ (old('customer_post_id') ? old('customer_post_id') : $customerPostsDescription->customer_post->id ?? '') == $id ? 'selected' : '' }}>{{ $id }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('customer_post'))
