@@ -236,7 +236,7 @@
                     </div>
                     <div class="col-span-1">
                         <div class="dropdown relative"><a href="#"
-                                                          class="button text-white px-1 md:px-2 lg:px-4 xl:px-8 bg-theme-9 w-full">связьция</a>
+                                                          class="button w-24 shadow-md mr-1 mb-2 bg-theme-9 text-white">связьция</a>
                             <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                                 <div class="dropdown-box__content box p-2">
 

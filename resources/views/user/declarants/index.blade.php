@@ -30,7 +30,7 @@
     </div>
 
     <div class="intro-y col-span-12 hidden sm:flex flex-wrap sm:flex-no-wrap items-center mt-2">
-        <div class="text-center">
+        <div class="teяxt-center">
             <a href="javascript:;" data-toggle="modal" data-target="#header-footer-modal-preview"
                class="button inline-block bg-theme-1 text-white shadow-md mr-2 px-5">Поиск транспорта</a>
         </div>
@@ -245,7 +245,6 @@
                 </div>
 
                 <div class="col-span-1">
-
                     <div class="dropdown relative"><a href="#" class="button w-24 shadow-md mr-1 mb-2 bg-theme-9 text-white">связьция</a>
                         <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                             <div class="dropdown-box__content box p-2">
@@ -274,7 +273,7 @@
             <!-- Computer Post Screen End -->
             <!-- Mobile Post Screen Begin -->
             <span
-                class="absolute md:hidden right-50 top-10 -mt-4 -mr-4 ml-4 px-5 py-1 bg-theme-9 text-white rounded-full">СВОБОДЕН</span>
+                class="absolute md:hidden right-50 top-10 -mt-4 -mr-4 ml-4 px-5 py-1 text-white rounded-full @if($declarant->status == 1) bg-theme-9 @elseif($declarant->status == 0) bg-theme-6 @endif rounded">@if($declarant->status == 1) Свободно @elseif($declarant->status == 0) Зайнет @endif</span>
             <div class="grid grid-cols-12 md:hidden shadow-md bg-white rounded-lg p-5 mt-4 font-medium">
                 <div class="col-span-12 sm:col-span-6 grid grid-cols-12">
                     <div class="col-span-9 mb-1 mt-4">
@@ -410,17 +409,12 @@
                         ЦЕНА:
                     </div>
                     <div class="col-span-4 mt-4 sm:mt-1 font-bold text-lg text-theme-1 text-center">
-                        5000 USD
+                        {{$declarant->price.' '.$declarant->currency['name_'.$locale]}}
                     </div>
                 </div>
                 <div class="col-span-12 sm:col-span-8 mt-4"><h1 style="padding-top: 6px;" class="text-lg">Abdurakhmon
                         GAYBULLAEV</h1></div>
                 <a href="#" class="button text-white px-0 mt-4 bg-theme-9 col-span-12 sm:col-span-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block -ml-2" viewBox="0 0 20 20"
-                         fill="currentColor">
-                        <path
-                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                    </svg>
                     &nbsp СВЯЗАЦИЯ
                 </a>
             </div>
