@@ -282,10 +282,10 @@
                                 <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile </a>
                             <a href="{{route('truckers-active',$locale)}}"
                                class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
-                                <i data-feather="zap" class="w-4 h-4 mr-2"></i> Active Posts </a>
+                                <i data-feather="eye" class="w-4 h-4 mr-2"></i> Active Posts </a>
                             <a href=""
                                class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
-                                <i data-feather="zap-off" class="w-4 h-4 mr-2"></i> Non-Active Posts </a>
+                                <i data-feather="eye-off" class="w-4 h-4 mr-2"></i> Non-Active Posts </a>
                             <a href="{{route('user-logout',$locale)}}"
                                class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
                                 <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>

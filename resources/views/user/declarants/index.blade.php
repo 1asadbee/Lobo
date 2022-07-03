@@ -239,12 +239,13 @@
                         class="col-span-1 flex items-center justify-center @if($declarant->status == 1) text-theme-9 @elseif($declarant->status == 0)text-theme-6 @endif">@if($declarant->status == 1)
                             <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Bosh
                         @elseif($declarant->status == 0)
-                            <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Band
+                            <i data-feather="x-square" class="w-4 h-4 mr-2"></i> Band
                         @endif </div>
                     <div class="col-span-1">{{$declarant->price.' '.$declarant->currency['name_'.$locale]}}</div>
                 </div>
 
                 <div class="col-span-1">
+
                     <div class="dropdown relative"><a href="#" class="button w-24 shadow-md mr-1 mb-2 bg-theme-9 text-white">связьция</a>
                         <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                             <div class="dropdown-box__content box p-2">

@@ -251,7 +251,7 @@
                             class="col-span-1 flex items-center justify-center @if($carrier_post->status == 1) text-theme-9 @elseif($carrier_post->status == 0)text-theme-6 @endif">@if($carrier_post->status == 1)
                                 <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Bosh
                             @elseif($carrier_post->status == 0)
-                                <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Band
+                                <i data-feather="x-square" class="w-4 h-4 mr-2"></i> Band
                             @endif </div>
                         <div
                             class="col-span-1">{{$carrier_post->price.' '.$carrier_post->currency['name_'.$locale]}}</div>
