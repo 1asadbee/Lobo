@@ -265,52 +265,45 @@
                 <!-- Computer Post Screen End -->
 
                 <!-- Mobile Post Screen Begin -->
-                <div onclick="openCaption(2)" id="1"
+                <div onclick="openCaption(2)" id="2"
                      class="grid grid-cols-12 md:hidden shadow-md bg-white rounded-lg p-5 font-medium">
-                    <div class="col-span-4"><span class="text-xl font-bold text-theme-1">5000 USD</span></div>
+                    <div class="col-span-4"><span class="text-xl font-bold text-theme-1">{{$customer->price.' '.$customer->currency['name_'.$locale]}}</span></div>
                     <div class="col-span-4">
                         <img class="h-10 mx-auto mb-5 truck-image"
                              src="https://cdn.picpng.com/truck/truck-picture-29681.png">
                     </div>
                     <div class="col-span-4 call-mobile-button">
                         <div class="w-fit ml-auto mb-10">
-                            <a href="#" class="button text-white ml-auto px-8 lg:px-4 xl:px-8 bg-theme-9 w-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block -ml-2"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                                </svg>
+                            <a href="#" class="button text-white ml-auto  lg:px-4 xl:px-8 bg-theme-9 w-full">
                                 &nbsp СВЯЗАЦИЯ</a>
                         </div>
                     </div>
                     <div class="col-span-4">
-                        <span class="text-gray-600">ТАШ - АНК</span>
+                        <span class="text-gray-600">{{$customer->from['name_'.$locale]}} -
+                            {{$customer->to['name_'.$locale]}}</span>
                         <br>
-                        <span>28.02.2022</span>
+                        <span>{{$customer->daten}}</span>
                     </div>
                     <div class="col-span-4">
                         <div class="w-fit mx-auto">
                             <span class="text-gray-600 whole-text">ВИД ТРАНСПОРТА</span>
                             <span class="text-gray-600 subtract-text">ВИД ТР.</span>
                             <br class="whole-text">
-                            <span>АВТО</span>
+                            <span>{{$customer->delivery_type['name_'.$locale]}}</span>
                         </div>
                     </div>
                     <div class="col-span-4">
                         <div class="w-fit mx-auto">
-                            <span class="text-gray-600">22000 кг</span>
+                            <span class="text-gray-600">{{$customer->weight}} KG</span>
                             <br>
-                            <span>Железо</span>
+                            <span>{{$customer->load_type['name_'.$locale]}}</span>
                         </div>
                     </div>
-                    <div id="caption-2" class="col-span-12 text-left caption-hidden">Lorem ipsum dolor sit amet,
-                        consectetur
-                        adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div id="caption-2" class="col-span-12 text-left caption-hidden"> @if($customer->description)
+                            {{$customer->description->description}}
+                        @else
+                            <span class="text-danger">Description not found</span>
+                        @endif
                     </div>
                 </div>
                 <!-- Mobile Post Screen End -->
