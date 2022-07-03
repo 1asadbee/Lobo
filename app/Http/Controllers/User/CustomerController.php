@@ -100,8 +100,6 @@ class CustomerController extends Controller
         $customer_post->load_type_id = $request->load_type_id;
         $customer_post->currency_id = $request->currency_id;
 
-
-
         if ($customer_post->save()) {
 
             $customer_description = new CustomerPostsDescription();
