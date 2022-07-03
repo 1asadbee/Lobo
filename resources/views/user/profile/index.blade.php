@@ -281,7 +281,7 @@
             <div class="col-span-12 sm:col-span-6 lg:col-span-4 flex my-auto flex-1 px-5 items-center">
                 <div class="w-20 h-20 sm:w-24 sm:h-24 flex-none lg:w-32 lg:h-32 image-fit relative">
                     <img alt="Midone Tailwind HTML Admin Template" class="rounded-full"
-                         src="{{asset('front/dist/images/profile-14.jpg')}}">
+                         src="{{asset('front/dist/images/profile.jpg')}}">
                     <div
                         class="absolute mb-1 mr-1 flex items-center justify-center bottom-0 right-0 bg-theme-1 rounded-full p-2">
                         <i class="w-4 h-4 text-white" data-feather="camera"></i></div>
@@ -289,7 +289,7 @@
                 <div class="ml-5">
                     <div
                         class="w-24 sm:w-40 truncate sm:whitespace-normal font-medium text-lg">{{explode('_',$user->name)[0]}} {{explode('_',$user->name)[1]}}</div>
-                    <div class="text-gray-600">Trucker</div>
+                    <div class="text-gray-600">@foreach(auth()->user()->roles as $key => $roles){{ __($roles->title) }}@endforeach</div>
                 </div>
             </div>
             <div
