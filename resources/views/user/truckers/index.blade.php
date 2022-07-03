@@ -17,7 +17,6 @@
             </button>
         </a>
         <!-- Modal -->
-
         <div class="modal" id="header-footer-modal-preview-3">
             <div class="modal__content relative"><a data-dismiss="modal" href="javascript:;"
                                                     class="absolute right-0 top-0 mt-3 mr-3"> <i data-feather="x"
@@ -32,6 +31,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
     <div class="intro-y col-span-12 hidden sm:flex flex-wrap sm:flex-no-wrap items-center mt-2">
@@ -248,12 +248,11 @@
                         <div
                             class="col-span-1 font-bold">{{date('d.m.Y', strtotime($carrier_post->departure_time))}}</div>
                         <div
-                            class="flex items-center justify-center @if($carrier_post->status == 1) text-theme-9 @elseif($carrier_post->status == 0)text-theme-6 @endif">@if($carrier_post->status == 1)
+                            class="col-span-1 flex items-center justify-center @if($carrier_post->status == 1) text-theme-9 @elseif($carrier_post->status == 0)text-theme-6 @endif">@if($carrier_post->status == 1)
                                 <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Bosh
                             @elseif($carrier_post->status == 0)
                                 <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Band
                             @endif </div>
-                        {{--                        <div class="col-span-1 text-white @if($carrier_post->status == 1) bg-theme-9 @elseif($carrier_post->status == 0) bg-theme-6 @endif rounded">@if($carrier_post->status == 1) Svoboden @elseif($carrier_post->status == 0) Zaynet @endif</div>--}}
                         <div
                             class="col-span-1">{{$carrier_post->price.' '.$carrier_post->currency['name_'.$locale]}}</div>
                     </div>

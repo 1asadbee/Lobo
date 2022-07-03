@@ -19,6 +19,7 @@ class DeclarantController extends Controller
             'unusual_cargo' => '',
             'insurance' => '',
             'status' => '',
+            'currency_id' => 'required',
             'price'=>'required'
         ]);
 
@@ -34,6 +35,8 @@ class DeclarantController extends Controller
         $declarant->insurance = $request->insurance == 'on' ? 1 : 0;
         $declarant->status = $request->status == 'on' ? 1 : 0;
         $declarant->price=$request->price;
+        $declarant->currency_id = $request->currency_id;
+
 
         if ($declarant->save()) {
 
