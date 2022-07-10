@@ -24,7 +24,7 @@
                 </a>
                 <div class="p-5 text-center"><i data-feather="check-circle"
                                                 class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
-                    <div class="text-3xl mt-5">Siz muvofaqatli otdingiz</div>
+                    <div class="text-3xl mt-5">Siz muvaffaqiyatli otdingiz</div>
                 </div>
                 <div class="px-5 pb-8 text-center">
                     <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button>
@@ -234,8 +234,7 @@
             {{--@dd($carrier_post)--}}
             <div @if($i == 0) @php $i = $i + 1; @endphp @else class=" md:mt-2" @endif>
                 <!-- Computer Post Screen Begin -->
-                <div
-                    class="{{!$carrier_post->status ? 'bg-red-200':''}} hidden md:grid grid-cols-9 text-center text-sm md:pr-3 lg:px-0 py-5 xl:py-3 shadow-md font-medium bg-white rounded-lg">
+                <div class="{{!$carrier_post->status ? 'bg-red-200':''}} hidden md:grid grid-cols-9 text-center text-sm md:pr-3 lg:px-0 py-5 xl:py-3 shadow-md font-medium bg-white rounded-lg">
                     <div onclick="openCaption({{$carrier_post->id}})" id="1" class="col-span-8 grid grid-cols-8">
                         <div class="col-span-1">{{$carrier_post->from['name_'.$locale]}}</div>
                         <div class="col-span-1">{{$carrier_post->to['name_'.$locale]}}</div>

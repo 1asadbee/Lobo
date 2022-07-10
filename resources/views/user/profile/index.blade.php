@@ -10,6 +10,8 @@
 
     <!-- Modal-->
 
+
+
     <div class="modal" id="header-footer-modal-preview">
         <div class="modal__content">
             <form id="contact_us_sweet" action="{{route('admin.test')}}">
@@ -63,6 +65,8 @@
             </form>
         </div>
     </div>
+
+
 
     {{--  parol --}}
     <div class="modal" id="header-footer-modal-preview-2">
