@@ -28,7 +28,7 @@
                             {{ trans('cruds.customerPostsDescription.fields.customer_post') }}
                         </th>
                         <td>
-                            {{ $customerPostsDescription->customer_post->date ?? '' }}
+                            {{ $customerPostsDescription->customer_post->id ?? '' }}
                         </td>
                     </tr>
                     <tr>

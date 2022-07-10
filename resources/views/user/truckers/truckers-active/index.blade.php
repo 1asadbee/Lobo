@@ -1,5 +1,9 @@
 @extends('user.layouts.master')
 
+@section('css')
+
+@endsection
+
 <!-- BEGIN: Mobile Menu -->
 <div class="mobile-menu md:hidden">
     <div class="mobile-menu-bar">

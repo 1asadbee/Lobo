@@ -14,7 +14,7 @@
                 <label class="required" for="declarant_id">{{ trans('cruds.declarantsDescription.fields.declarant') }}</label>
                 <select class="form-control select2 {{ $errors->has('declarant') ? 'is-invalid' : '' }}" name="declarant_id" id="declarant_id" required>
                     @foreach($declarants as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('declarant_id') ? old('declarant_id') : $declarantsDescription->declarant->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                        <option value="{{ $id }}" {{ (old('declarant_id') ? old('declarant_id') : $declarantsDescription->declarant->id ?? '') == $id ? 'selected' : '' }}>{{ $id }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('declarant'))

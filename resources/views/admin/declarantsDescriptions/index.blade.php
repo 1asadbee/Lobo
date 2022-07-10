@@ -43,7 +43,7 @@
                                 {{ $declarantsDescription->id ?? '' }}
                             </td>
                             <td>
-                                {{ $declarantsDescription->declarant->declaration ?? '' }}
+                                {{ $declarantsDescription->declarant->id ?? '' }}
                             </td>
                             <td>
                                 @can('declarants_description_show')
@@ -124,7 +124,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

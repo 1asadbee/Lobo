@@ -61,6 +61,12 @@
                     @endforeach
                 </select>
             </div>
+            <div class="col-span-12">
+                <label>Opisaniya <span style="color: red">*</span></label>
+                <textarea class="input w-full border mt-2" name="description"
+                          placeholder="Type your comments"
+                          minlength="10" required></textarea>
+            </div>
 
         </div>
         <div class="px-5 py-3 text-right border-t border-gray-200">
